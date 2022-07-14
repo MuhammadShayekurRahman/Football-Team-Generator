@@ -1,9 +1,13 @@
 package com.qa.football.rest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +47,14 @@ public class PlayerControllerTest {
 		ResultMatcher checkbody = content().json(createdPlayerAsJSON);
 		
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkbody);
+	}
+	
+	@Test
+	void testGetPlayers() throws Exception{
+		List<Player> players = new ArrayList<>();
+		players.add(new Player(1, "Lionel", "Messi", "ST", 10, "PSG"));
+		String listPlayersAsJSON = this.mapper.writeValueAsString(players);
+		this.mvc.perform(get("/getPlayers")).andExpect(status().isOk()).andExpect(status().isOk()).andExpect(content().json(listPlayersAsJSON));
 	}
 	
 	
