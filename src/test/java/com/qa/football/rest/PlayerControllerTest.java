@@ -57,6 +57,13 @@ public class PlayerControllerTest {
 		this.mvc.perform(get("/getPlayers")).andExpect(status().isOk()).andExpect(status().isOk()).andExpect(content().json(listPlayersAsJSON));
 	}
 	
+	@Test
+	void testGetPlayerById() throws Exception{
+		Player findPlayer = new Player(1, "Lionel", "Messi", "ST", 10, "PSG");
+		String findPlayerAsJSON = this.mapper.writeValueAsString(findPlayer);
+		this.mvc.perform(get("/getPlayer/1")).andExpect(status().isOk()).andExpect(content().json(findPlayerAsJSON));
+	}
+	
 	
 	@Test
 	void testDelete() throws Exception {
