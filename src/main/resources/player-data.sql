@@ -1,0 +1,1 @@
+insert into player (first_name, position, shirt_number, surname, team_name) values ("Lionel", "ST", 10, "Messi", "PSG");
