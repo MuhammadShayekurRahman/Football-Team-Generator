@@ -44,7 +44,7 @@ public class PlayerController {
 		
 		@PatchMapping("/updatePlayer/{id}")
 		public ResponseEntity<Player> update(@PathVariable int id, @PathParam("firstName") String firstName, 
-					@PathParam("surname") String surname, @PathParam("postion") String position, @PathParam("shirtNumber") int shirtNumber, @PathParam("teamName") String teamName){
+					@PathParam("surname") String surname, @PathParam("position") String position, @PathParam("shirtNumber") int shirtNumber, @PathParam("teamName") String teamName){
 						return new ResponseEntity<Player>(this.service.update(id, firstName, surname, position, shirtNumber, teamName), HttpStatus.ACCEPTED);
 			
 		}

@@ -15,7 +15,7 @@ public class Player {
 	private Integer id;
 	private String firstName;
 	private String surname;
-	private String positon;
+	private String position;
 	private Integer shirtNumber;
 	private String teamName;
 	
@@ -23,12 +23,12 @@ public class Player {
 		super();
 	}
 
-	public Player(Integer id, String firstName, String surname, String positon, Integer shirtNumber, String teamName) {
+	public Player(Integer id, String firstName, String surname, String position, Integer shirtNumber, String teamName) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.surname = surname;
-		this.positon = positon;
+		this.position = position;
 		this.shirtNumber = shirtNumber;
 		this.teamName = teamName;
 	}
@@ -57,12 +57,12 @@ public class Player {
 		this.surname = surname;
 	}
 
-	public String getPositon() {
-		return positon;
+	public String getposition() {
+		return position;
 	}
 
-	public void setPositon(String positon) {
-		this.positon = positon;
+	public void setposition(String position) {
+		this.position = position;
 	}
 
 	public Integer getShirtNumber() {
@@ -83,7 +83,7 @@ public class Player {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(firstName, id, positon, shirtNumber, surname, teamName);
+		return Objects.hash(firstName, id, position, shirtNumber, surname, teamName);
 	}
 
 	@Override
@@ -96,13 +96,13 @@ public class Player {
 			return false;
 		Player other = (Player) obj;
 		return Objects.equals(firstName, other.firstName) && Objects.equals(id, other.id)
-				&& Objects.equals(positon, other.positon) && Objects.equals(shirtNumber, other.shirtNumber)
+				&& Objects.equals(position, other.position) && Objects.equals(shirtNumber, other.shirtNumber)
 				&& Objects.equals(surname, other.surname) && Objects.equals(teamName, other.teamName);
 	}
 
 	@Override
 	public String toString() {
-		return "Player [id=" + id + ", firstName=" + firstName + ", surname=" + surname + ", positon=" + positon
+		return "Player [id=" + id + ", firstName=" + firstName + ", surname=" + surname + ", position=" + position
 				+ ", shirtNumber=" + shirtNumber + ", teamName=" + teamName + "]";
 	}
 	

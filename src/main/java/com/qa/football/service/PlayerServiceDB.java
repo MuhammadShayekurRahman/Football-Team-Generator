@@ -36,7 +36,7 @@ public class PlayerServiceDB implements PlayerService{
 		Player toUpdate = this.repo.getById(id);
 		toUpdate.setFirstName(firstName);
 		toUpdate.setSurname(surname);
-		toUpdate.setPositon(position);
+		toUpdate.setposition(position);
 		toUpdate.setShirtNumber(shirtNumber);
 		toUpdate.setTeamName(teamName);
 		return this.repo.save(toUpdate);
