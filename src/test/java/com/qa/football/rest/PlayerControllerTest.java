@@ -1,17 +1,23 @@
 package com.qa.football.rest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.ResultMatcher;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.qa.football.entity.Player;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -24,6 +30,21 @@ public class PlayerControllerTest {
 	
 	@Autowired
 	private ObjectMapper mapper;
+	
+	@Test
+	void testCreate() throws Exception{
+		Player testPlayer = new Player(null, "Cristiano", "Ronaldo", "ST", 7, "Man Utd");
+		String testPlayerAsJSON = this.mapper.writeValueAsString(testPlayer);
+		RequestBuilder req = post("/createPlayer").content(testPlayerAsJSON).contentType(MediaType.APPLICATION_JSON);
+		
+		ResultMatcher checkStatus = status().isCreated();
+		Player createdPlayer = new Player(2, "Cristiano", "Ronaldo", "ST", 7, "Man Utd");
+		String createdPlayerAsJSON = this.mapper.writeValueAsString(createdPlayer);
+		ResultMatcher checkbody = content().json(createdPlayerAsJSON);
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkbody);
+	}
+	
 	
 	@Test
 	void testDelete() throws Exception {
