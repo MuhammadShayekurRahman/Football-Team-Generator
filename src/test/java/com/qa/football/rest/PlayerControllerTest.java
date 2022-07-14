@@ -2,6 +2,7 @@ package com.qa.football.rest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -62,6 +63,15 @@ public class PlayerControllerTest {
 		Player findPlayer = new Player(1, "Lionel", "Messi", "ST", 10, "PSG");
 		String findPlayerAsJSON = this.mapper.writeValueAsString(findPlayer);
 		this.mvc.perform(get("/getPlayer/1")).andExpect(status().isOk()).andExpect(content().json(findPlayerAsJSON));
+	}
+	
+	@Test
+	void testUpdate() throws Exception{
+		Player updatedPlayer = new Player(1, "Mason", "Mount", "CM", 19, "Chelsea");
+		String updatedPlayerAsJSON = this.mapper.writeValueAsString(updatedPlayer);
+		this.mvc.perform(patch("/updatePlayer/1?firstName=Mason&surname=Mount&shirtNumber=19&position=CM&teamName=Chelsea")).andExpect(status().isAccepted())
+		.andExpect(content().json(updatedPlayerAsJSON));
+		
 	}
 	
 	
