@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a player</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+
+    <form>
+        <label for="firstName">Enter Player First Name:</label>
+        <input  name="firstName">
+        <br>
+        <label for="surname">Enter Player Last Name:</label>
+        <input  name="surname">
+        <br>
+        <label for="position">Enter Player Position:</label>
+        <input  name="position">
+        <br>
+        <label for="shirtNumber">Enter Player Shirt Number</label>
+        <input  type="number" name="shirtNumber">
+        <br>
+        <label for="teamName">Enter Player Team Name:</label>
+        <input  name="teamName">
+        <br>
+        <button type="submit">Create</button>
+    </form>
+
+    <div id="output">
+
+    </div>
+    
+    <script src="player.js"></script>
+</body>
+</html>
