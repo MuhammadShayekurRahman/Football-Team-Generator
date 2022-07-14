@@ -81,24 +81,24 @@ public class Player {
 		this.teamName = teamName;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(firstName, id, position, shirtNumber, surname, teamName);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Player other = (Player) obj;
-		return Objects.equals(firstName, other.firstName) && Objects.equals(id, other.id)
-				&& Objects.equals(position, other.position) && Objects.equals(shirtNumber, other.shirtNumber)
-				&& Objects.equals(surname, other.surname) && Objects.equals(teamName, other.teamName);
-	}
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(firstName, id, position, shirtNumber, surname, teamName);
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Player other = (Player) obj;
+//		return Objects.equals(firstName, other.firstName) && Objects.equals(id, other.id)
+//				&& Objects.equals(position, other.position) && Objects.equals(shirtNumber, other.shirtNumber)
+//				&& Objects.equals(surname, other.surname) && Objects.equals(teamName, other.teamName);
+//	}
 
 	@Override
 	public String toString() {
