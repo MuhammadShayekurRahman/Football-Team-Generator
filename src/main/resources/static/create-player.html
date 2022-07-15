@@ -12,16 +12,29 @@
 
     <form>
         <label for="firstName">Enter Player First Name:</label>
-        <input  name="firstName">
+        <input  name="firstName" required>
         <br>
         <label for="surname">Enter Player Last Name:</label>
-        <input  name="surname">
+        <input  name="surname" required>
         <br>
         <label for="position">Enter Player Position:</label>
-        <input  name="position">
+        <select name="position" required>
+            <option value="GK">Goal Keeper</option>
+            <option value="RB">Right Back</option>
+            <option value="CB-R">Centre Back - Right</option>
+            <option value="CB-L">Centre Back - Left</option>
+            <option value="LB">Left Back</option>
+            <option value="RM">Right Mid</option>
+            <option value="CM-R">Centre Mid - Right</option>
+            <option value="CM-L">Centre Mid - Left</option>
+            <option value="LM">Left Mid</option>
+            <option value="ST-R">Striker - Right</option>
+            <option value="ST-L">Striker - Left</option>
+
+        </select>
         <br>
         <label for="shirtNumber">Enter Player Shirt Number</label>
-        <input  type="number" name="shirtNumber">
+        <input  type="number" name="shirtNumber" min="0" max="99">
         <br>
         <label for="teamName">Enter Player Team Name:</label>
         <input  name="teamName">
