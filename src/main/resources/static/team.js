@@ -1,7 +1,7 @@
 "use strict";
 const output = document.querySelector("div#output");
 const teamSearch = document.querySelector("input#teamSearch");
-const cardBody = document.getElementsByClassName("card-body");
+// const cardBody = document.getElementsByClassName("card-body");
 document.querySelector(".d-flex").addEventListener("submit", function(event){
     event.preventDefault();
     console.log("Search Value: " + teamSearch.value);
@@ -10,7 +10,8 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
 
     //clear Not working, appends on resubmission
     // debugger;
-    cardBody.innerHTML = "";
+    // cardBody.innerHTML = "";
+    
     axios.get("http://localhost:8080/getPlayers")
         .then(response => {
             console.log(response);
@@ -20,6 +21,7 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
 
             for(let player of response.data){
                 
+
                 // if(player.teamName.includes(teamSearch.value)){
                 //     alert("Team Not Found");
                 // }
@@ -48,8 +50,8 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
                 playerCard.appendChild(playerTeamName);
 
                 const updateButton = document.createElement("button");
-                updateButton.className = "btn btn-warning mr-3";
-                updateButton.innerText = "Update";
+                updateButton.className = "btn btn-warning m-2";
+                updateButton.innerText = "Edit";
                 playerCard.appendChild(updateButton);
                 updateButton.addEventListener(("click"), ()=>{
                     updatePlayer(player.id, player.firstName, player.surname, player.position, player.shirtNumber, player.teamName);
@@ -62,6 +64,8 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
                 deleteButton.addEventListener("click", () =>{
                     deletePlayer(player.id);
                 })
+
+                
             }
             
             

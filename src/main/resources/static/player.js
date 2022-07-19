@@ -64,6 +64,14 @@ function renderPlayers(){
                 playerTeamName.innerText = "Team Name: " + player.teamName;
                 playerDiv.appendChild(playerTeamName);
 
+                const updateButton = document.createElement("button");
+                updateButton.className = "btn btn-warning m-2";
+                updateButton.innerText = "Edit";
+                playerDiv.appendChild(updateButton);
+                updateButton.addEventListener(("click"), ()=>{
+                    updatePlayer(player.id, player.firstName, player.surname, player.position, player.shirtNumber, player.teamName);
+                })
+
                 const playerDelete = document.createElement("button");
                 playerDelete.className = "btn btn-danger";
                 playerDelete.innerText = "Delete";
@@ -71,6 +79,8 @@ function renderPlayers(){
                 playerDelete.addEventListener("click", () =>{
                     deletePlayer(player.id);
                 })
+
+                
 
                 output.prepend(playerCol);
 
@@ -92,3 +102,7 @@ const deletePlayer = (id) =>{
 }
 
 renderPlayers();
+
+const updatePlayer = (id, firstName, surname, position, shirtNumber, teamName) => {
+    window.location = "update-player.html?id=" + id + "&firstName=" + firstName + "&surname=" + surname + "&position=" + position + "&shirtNumber=" + shirtNumber + "&teamName=" + teamName;
+}
