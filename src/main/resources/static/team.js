@@ -82,5 +82,5 @@ const deletePlayer = (id) =>{
 }
 
 const updatePlayer = (id, firstName, surname, position, shirtNumber, teamName) => {
-    window.location = "update-player.html?id="+id;
+    window.location = "update-player.html?id=" + id + "&firstName=" + firstName + "&surname=" + surname + "&position=" + position + "&shirtNumber=" + shirtNumber + "&teamName=" + teamName;
 }
