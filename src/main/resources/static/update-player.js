@@ -30,6 +30,27 @@ const setCurrent = () => {
 
 setCurrent();
 
+document.querySelector(".create-player-form").addEventListener("submit", function(event){
+    event.preventDefault();
+    
+    console.log("This:", this);
+    const data = {
+        firstName: this.firstName.value,
+        surname: this.surname.value,
+        position: this.position.value,
+        shirtNumber: this.shirtNumber.value,
+        teamName: this.teamName.value
+    }
+
+    console.log("data:", data);
+
+    axios.patch("http://localhost:8080/updatePlayer/"+ currentId + "?firstName=" + this.firstName.value + "&surname=" + this.surname.value +  "&shirtNumber=" + this.shirtNumber.value + "&position=" + this.position.value + "&teamName=" + this.teamName.value )
+        .then(response => {
+            console.log("Update Successful")
+        })
+        .catch(error => console.log(error))
+})    
+
 
 
 
