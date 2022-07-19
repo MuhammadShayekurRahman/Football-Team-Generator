@@ -47,6 +47,10 @@ document.querySelector(".create-player-form").addEventListener("submit", functio
     axios.patch("http://localhost:8080/updatePlayer/"+ currentId + "?firstName=" + this.firstName.value + "&surname=" + this.surname.value +  "&shirtNumber=" + this.shirtNumber.value + "&position=" + this.position.value + "&teamName=" + this.teamName.value )
         .then(response => {
             console.log("Update Successful")
+            const updateDiv = document.querySelector("div#update-form");
+            const message = document.createElement("p");
+            message.innerText = "Success";
+            updateDiv.appendChild(message);
         })
         .catch(error => console.log(error))
 })    

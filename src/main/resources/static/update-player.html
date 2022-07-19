@@ -14,9 +14,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>update-player</h1>
-    <a href="view-team.html">Back to Team</a>
-    <div class="col-6">
+    <div class="row">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+              <button class="btn btn-success" onclick="location.href ='index.html'">Home</button>
+              <a class="navbar-brand">Update Player</a>
+              <!-- <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form> -->
+            </div>
+          </nav>
+    </div>
+    <div class="col-6 offset-3 mt-5" id="update-form">
         <form class="create-player-form">
             <div class="mb-1">
             <label for="firstName" class="form-label">Enter Player First Name:</label>
