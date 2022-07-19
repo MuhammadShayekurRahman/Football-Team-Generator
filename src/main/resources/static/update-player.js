@@ -14,6 +14,11 @@ const currentTeamName = getParameter("teamName");
 
 console.log(currentId, currentFirstName, currentSurname, currentPosition, currentShirtNumber, currentTeamName);
 
-if (currentId == undefined){
+// Checks for ID
+if (currentId == ''){
     alert("Error - Id not found");
+    window.location = "view-team.html";
 }
+
+
+
