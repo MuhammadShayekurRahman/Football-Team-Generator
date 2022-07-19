@@ -6,13 +6,16 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
     event.preventDefault();
     console.log("Search Value: " + teamSearch.value);
 
+    
+
     //clear Not working, appends on resubmission
+    // debugger;
     cardBody.innerHTML = "";
     axios.get("http://localhost:8080/getPlayers")
         .then(response => {
             console.log(response);
 
-            // debugger;
+           
             
 
             for(let player of response.data){
@@ -20,6 +23,7 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
                 // if(player.teamName.includes(teamSearch.value)){
                 //     alert("Team Not Found");
                 // }
+
 
                 if(player.teamName.toLowerCase() !== teamSearch.value.toLowerCase()) continue;
                 console.log(player);
@@ -47,11 +51,17 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
                 updateButton.className = "btn btn-warning mr-3";
                 updateButton.innerText = "Update";
                 playerCard.appendChild(updateButton);
+                updateButton.addEventListener(("click"), ()=>{
+                    updatePlayer(player.id, player.firstName, player.surname, player.position, player.shirtNumber, player.teamName);
+                })
 
                 const deleteButton = document.createElement("button");
                 deleteButton.className = "btn btn-danger";
                 deleteButton.innerText = "Delete";
                 playerCard.appendChild(deleteButton);
+                deleteButton.addEventListener("click", () =>{
+                    deletePlayer(player.id);
+                })
             }
             
             
@@ -62,19 +72,15 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
 
 })
 
-// function playerCard(player){
-//     const playerCol = document.createElement("div");
-//     playerCol.className = "col-3";
+const deletePlayer = (id) =>{
+    axios.delete("http://localhost:8080/removePlayer/" + id)
+        .then(response => {
+            console.log("delete successful");
+            location.reload();
+        })
+        .catch(error => console.error(error))
+}
 
-//     const playerCard = document.createElement("div");
-//     playerCard.className = "card text-white bg-dark mb-3";
-//     playerCol.appendChild(playerCard);
-
-//     const playerPosition = document.createElement("div");
-//     playerPosition.className = "card-header";
-//     playerPosition.innerText = player.position;
-//     playerCard.appendChild(playerPosition);           
-
-
-            
-// }
+const updatePlayer = (id, firstName, surname, position, shirtNumber, teamName) => {
+    window.location = "update-player.html?id="+id;
+}
