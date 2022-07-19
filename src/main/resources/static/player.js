@@ -34,7 +34,7 @@ function renderPlayers(){
 
             for(let player of response.data){
                 const playerCol = document.createElement("div");
-                playerCol.className = "col-3";
+                playerCol.className = "col-3 m-2";
 
                 const playerCard = document.createElement("div");
                 playerCard.className = "card text-white bg-dark mb-3";
@@ -56,12 +56,12 @@ function renderPlayers(){
 
                 const playerShirtNumber = document.createElement("p");
                 playerShirtNumber.className = "card-text";
-                playerShirtNumber.innerText = player.shirtNumber;
+                playerShirtNumber.innerText = "Shirt Number: " + player.shirtNumber;
                 playerDiv.appendChild(playerShirtNumber);
 
                 const playerTeamName = document.createElement("p");
                 playerTeamName.className = "card-text";
-                playerTeamName.innerText = player.teamName;
+                playerTeamName.innerText = "Team Name: " + player.teamName;
                 playerDiv.appendChild(playerTeamName);
 
                 const playerDelete = document.createElement("button");
@@ -72,7 +72,7 @@ function renderPlayers(){
                     deletePlayer(player.id);
                 })
 
-                output.appendChild(playerCol);
+                output.prepend(playerCol);
 
             }
             
