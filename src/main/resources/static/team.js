@@ -9,7 +9,7 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
         .then(response => {
             console.log(response);
 
-            output.innerHTML="";
+            // output.innerHTML="";
 
             for(let player of response.data){
                 
@@ -22,46 +22,37 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
                 const pageTitle = document.querySelector("a#title");
                 pageTitle.innerText = "View Team: " + teamSearch.value.toUpperCase();
 
-                const playerCol = document.createElement("div");
-                playerCol.className = "col-3";
+                // const playerCardId = document.getElementById(player.position);
+                // console.log("Div id :" + playerCardId);
+                // const playerBody = document.querySelector("div#playerBody");
+                
+                // const playerName = document.createElement("h5");
+                // playerName.className = "card-title";
+                // playerName.innerText = player.firstName + " " + player.surname;
+                // playerBody.appendChild(playerName);
 
-                const playerCard = document.createElement("div");
-                playerCard.className = "card text-white bg-dark mb-3";
-                playerCol.appendChild(playerCard);
+                // playerCardId.appendChild(playerBody);
+                // const playerName = document.querySelector("div#"+playerCardId);
+                // const test = document.createElement("p");
+                // test.innerText = "THIS IS A TEST";
+                // playerName.appendChild(test);
 
-                const playerPosition = document.createElement("div");
-                playerPosition.className = "card-header";
-                playerPosition.innerText = player.position;
-                playerCard.appendChild(playerPosition);
-
-                const playerDiv = document.createElement("div");
-                playerDiv.className = "card-body";
-                playerCard.appendChild(playerDiv);
-
+                const playerCard = document.querySelector("div#"+player.position);
+                console.log("Div Id: " + playerCard);
                 const playerName = document.createElement("h5");
                 playerName.className = "card-title";
                 playerName.innerText = player.firstName + " " + player.surname;
-                playerDiv.appendChild(playerName);
+                playerCard.appendChild(playerName);
 
                 const playerShirtNumber = document.createElement("p");
                 playerShirtNumber.className = "card-text";
-                playerShirtNumber.innerText = player.shirtNumber;
-                playerDiv.appendChild(playerShirtNumber);
+                playerShirtNumber.innerText = "Shirt Number: " + player.shirtNumber;
+                playerCard.appendChild(playerShirtNumber);
 
                 const playerTeamName = document.createElement("p");
                 playerTeamName.className = "card-text";
-                playerTeamName.innerText = player.teamName;
-                playerDiv.appendChild(playerTeamName);
-
-                const playerDelete = document.createElement("button");
-                playerDelete.className = "btn btn-danger";
-                playerDelete.innerText = "Delete";
-                playerDiv.appendChild(playerDelete);
-                playerDelete.addEventListener("click", () =>{
-                    deletePlayer(player.id);
-                })
-
-                output.appendChild(playerCol);
+                playerTeamName.innerText = "Team Name: " + player.teamName;
+                playerCard.appendChild(playerTeamName);
             }
             
             
