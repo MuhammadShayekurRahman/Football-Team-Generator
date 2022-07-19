@@ -1,15 +1,19 @@
 "use strict";
 const output = document.querySelector("div#output");
 const teamSearch = document.querySelector("input#teamSearch");
+const cardBody = document.getElementsByClassName("card-body");
 document.querySelector(".d-flex").addEventListener("submit", function(event){
     event.preventDefault();
     console.log("Search Value: " + teamSearch.value);
-    
+
+    //clear Not working, appends on resubmission
+    cardBody.innerHTML = "";
     axios.get("http://localhost:8080/getPlayers")
         .then(response => {
             console.log(response);
 
-            // output.innerHTML="";
+            // debugger;
+            
 
             for(let player of response.data){
                 
@@ -27,7 +31,6 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
                 const playerName = document.createElement("h5");
                 playerName.className = "card-title";
                 playerName.innerText = player.firstName + " " + player.surname;
-                //debugger;
                 playerCard.appendChild(playerName);
 
                 const playerShirtNumber = document.createElement("p");
