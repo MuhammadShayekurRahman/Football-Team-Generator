@@ -48,9 +48,11 @@ document.querySelector(".create-player-form").addEventListener("submit", functio
         .then(response => {
             console.log("Update Successful")
             const updateDiv = document.querySelector("div#update-form");
-            const message = document.createElement("p");
-            message.innerText = "Success";
-            updateDiv.appendChild(message);
+            const alert = document.createElement("div");
+            alert.className = "alert alert-warning";
+            alert.ariaRoleDescription = "alert";
+            alert.innerText = "Success - Player: " + this.firstName.value + " has been updated";
+            updateDiv.appendChild(alert);
         })
         .catch(error => console.log(error))
 })    
