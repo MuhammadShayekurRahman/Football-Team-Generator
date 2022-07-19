@@ -1,31 +1,10 @@
 "use strict";
 const output = document.querySelector("div#output");
-document.querySelector(".create-player-form").addEventListener("submit", function(event){
+const teamSearch = document.querySelector("input#teamSearch");
+document.querySelector(".d-flex").addEventListener("submit", function(event){
     event.preventDefault();
+    console.log("Search Value: " + teamSearch.value);
     
-    console.log("This:", this);
-
-    const data = {
-        firstName: this.firstName.value,
-        surname: this.surname.value,
-        position: this.position.value,
-        shirtNumber: this.shirtNumber.value,
-        teamName: this.teamName.value
-    }
-
-    console.log("data:", data);
-
-    axios.post("http://localhost:8080/createPlayer", data)
-        .then(response => {
-            console.log("Res:", response)
-            this.reset();
-            this.firstName.focus();
-            renderPlayers();
-        })
-        .catch(error => console.error(error))
-})
-
-function renderPlayers(){
     axios.get("http://localhost:8080/getPlayers")
         .then(response => {
             console.log(response);
@@ -33,6 +12,16 @@ function renderPlayers(){
             output.innerHTML="";
 
             for(let player of response.data){
+                
+                // if(player.teamName.includes(teamSearch.value)){
+                //     alert("Team Not Found");
+                // }
+
+                if(player.teamName.toLowerCase() !== teamSearch.value.toLowerCase()) continue;
+                console.log(player);
+                const pageTitle = document.querySelector("a#title");
+                pageTitle.innerText = "View Team: " + teamSearch.value.toUpperCase();
+
                 const playerCol = document.createElement("div");
                 playerCol.className = "col-3";
 
@@ -73,22 +62,29 @@ function renderPlayers(){
                 })
 
                 output.appendChild(playerCol);
-
             }
             
             
 
         })
         .catch(error => console.error(error))
-}
 
-const deletePlayer = (id) =>{
-    axios.delete("http://localhost:8080/removePlayer/" + id)
-        .then(response => {
-            console.log("delete successful")
-            renderPlayers();
-        })
-        .catch(error => console.error(error))
-}
 
-renderPlayers();
+})
+
+// function playerCard(player){
+//     const playerCol = document.createElement("div");
+//     playerCol.className = "col-3";
+
+//     const playerCard = document.createElement("div");
+//     playerCard.className = "card text-white bg-dark mb-3";
+//     playerCol.appendChild(playerCard);
+
+//     const playerPosition = document.createElement("div");
+//     playerPosition.className = "card-header";
+//     playerPosition.innerText = player.position;
+//     playerCard.appendChild(playerPosition);           
+
+
+            
+// }
