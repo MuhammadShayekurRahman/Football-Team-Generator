@@ -20,5 +20,17 @@ if (currentId == ''){
     window.location = "view-team.html";
 }
 
+const setCurrent = () => {
+    document.getElementById("firstName").value = currentFirstName;
+    document.getElementById("surname").value = currentSurname;
+    document.getElementById("position").value = currentPosition;
+    document.getElementById("shirtNumber").value = currentShirtNumber;
+    document.getElementById("teamName").value = currentTeamName;
+}
+
+setCurrent();
+
+
+
 
 
