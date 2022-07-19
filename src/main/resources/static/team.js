@@ -22,26 +22,12 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
                 const pageTitle = document.querySelector("a#title");
                 pageTitle.innerText = "View Team: " + teamSearch.value.toUpperCase();
 
-                // const playerCardId = document.getElementById(player.position);
-                // console.log("Div id :" + playerCardId);
-                // const playerBody = document.querySelector("div#playerBody");
-                
-                // const playerName = document.createElement("h5");
-                // playerName.className = "card-title";
-                // playerName.innerText = player.firstName + " " + player.surname;
-                // playerBody.appendChild(playerName);
-
-                // playerCardId.appendChild(playerBody);
-                // const playerName = document.querySelector("div#"+playerCardId);
-                // const test = document.createElement("p");
-                // test.innerText = "THIS IS A TEST";
-                // playerName.appendChild(test);
-
-                const playerCard = document.querySelector("div#"+player.position);
+                const playerCard = document.querySelector("#"+player.position);
                 console.log("Div Id: " + playerCard);
                 const playerName = document.createElement("h5");
                 playerName.className = "card-title";
                 playerName.innerText = player.firstName + " " + player.surname;
+                //debugger;
                 playerCard.appendChild(playerName);
 
                 const playerShirtNumber = document.createElement("p");
@@ -53,6 +39,16 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
                 playerTeamName.className = "card-text";
                 playerTeamName.innerText = "Team Name: " + player.teamName;
                 playerCard.appendChild(playerTeamName);
+
+                const updateButton = document.createElement("button");
+                updateButton.className = "btn btn-warning mr-3";
+                updateButton.innerText = "Update";
+                playerCard.appendChild(updateButton);
+
+                const deleteButton = document.createElement("button");
+                deleteButton.className = "btn btn-danger";
+                deleteButton.innerText = "Delete";
+                playerCard.appendChild(deleteButton);
             }
             
             
