@@ -6,19 +6,12 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
     event.preventDefault();
     console.log("Search Value: " + teamSearch.value);
 
-    
-
-    //clear Not working, appends on resubmission
-    // debugger;
-    // cardBody.innerHTML = "";
+    clearCards();
     
     axios.get("http://localhost:8080/getPlayers")
         .then(response => {
             console.log(response);
-
-           
             
-
             for(let player of response.data){
                 
 
@@ -87,4 +80,42 @@ const deletePlayer = (id) =>{
 
 const updatePlayer = (id, firstName, surname, position, shirtNumber, teamName) => {
     window.location = "update-player.html?id=" + id + "&firstName=" + firstName + "&surname=" + surname + "&position=" + position + "&shirtNumber=" + shirtNumber + "&teamName=" + teamName;
+}
+
+const clearCards = () => {
+    // const stRCard = document.querySelector("div#ST-R");
+    // const stLCard = document.querySelector("div#ST-L");
+    // const rmCard = document.querySelector("div#RM");
+    // const cmRCard = document.querySelector("div#CM-R");
+    // const cmLCard = document.querySelector("div#CM-L");
+    // const lmCard = document.querySelector("div#LM");
+    // const rbCard = document.querySelector("div#RB");
+    // const cbRcard = document.querySelector("div#CB-R");
+    // const cbLcard = document.querySelector("div#CB-L");
+    // const lbCard = document.querySelector("div#LB");
+    // const gkCard = document.querySelector("div#GK");
+
+    // stRCard.innerHTML = "";
+    // stLCard.innerHTML = "";
+    // rmCard.innerHTML = "";
+    // cmLCard.innerHTML = "";
+    // cmRCard.innerHTML = "";
+    // lmCard.innerHTML = "";
+    // rbCard.innerHTML = "";
+    // cbRcard.innerHTML = "";
+    // cbLcard.innerHTML = "";
+    // lbCard.innerHTML = "";
+    // gkCard.innerHTML = "";
+
+    document.querySelector("div#ST-R").innerHTML = "";
+    document.querySelector("div#ST-L").innerHTML = "";
+    document.querySelector("div#RM").innerHTML = "";
+    document.querySelector("div#CM-R").innerHTML = "";
+    document.querySelector("div#CM-L").innerHTML = "";
+    document.querySelector("div#LM").innerHTML = "";
+    document.querySelector("div#RB").innerHTML = "";
+    document.querySelector("div#CB-R").innerHTML = "";
+    document.querySelector("div#CB-L").innerHTML = "";
+    document.querySelector("div#LB").innerHTML = "";
+    document.querySelector("div#GK").innerHTML = "";
 }
