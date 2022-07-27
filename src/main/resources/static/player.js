@@ -29,7 +29,7 @@ document.querySelector(".create-player-form").addEventListener("submit", functio
     
             alert.innerText = "Success - Player: " + data.firstName + " has been Created!";
 
-            createForm.prepend(alert);
+            createForm.appendChild(alert);
         })
         .catch(error => console.error(error))
 })
