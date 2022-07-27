@@ -21,6 +21,7 @@ document.querySelector(".d-flex").addEventListener("submit", function(event){
 
 
                 if(player.teamName.toLowerCase() !== teamSearch.value.toLowerCase()) continue;
+                
                 console.log(player);
                 const pageTitle = document.querySelector("a#title");
                 pageTitle.innerText = "View Team: " + teamSearch.value.toUpperCase();

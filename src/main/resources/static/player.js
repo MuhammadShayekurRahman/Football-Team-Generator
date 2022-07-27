@@ -1,5 +1,6 @@
 "use strict";
 const output = document.querySelector("div#output");
+const createForm = document.querySelector("div#create-form");
 document.querySelector(".create-player-form").addEventListener("submit", function(event){
     event.preventDefault();
     
@@ -21,6 +22,14 @@ document.querySelector(".create-player-form").addEventListener("submit", functio
             this.reset();
             this.firstName.focus();
             renderPlayers();
+
+            const alert = document.createElement("div");
+            alert.className = "alert alert-warning m-3";
+            alert.ariaRoleDescription = "alert";
+    
+            alert.innerText = "Success - Player: " + data.firstName + " has been Created!";
+
+            createForm.appendChild(alert);
         })
         .catch(error => console.error(error))
 })
