@@ -29,7 +29,7 @@ div .card{
 .box {
     margin: 0 auto;
     margin-top: 10%;
-    width: 60%;
+    width: 70%;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
     overflow: hidden;
@@ -49,6 +49,7 @@ div .card{
     background-repeat: no-repeat;
     background-image: url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
     overflow: hidden;
+    width: 60%;
   }
   .box .left .overlay {
     padding: 30px;
