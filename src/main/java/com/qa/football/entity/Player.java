@@ -1,7 +1,5 @@
 package com.qa.football.entity;
 
-import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -99,13 +97,13 @@ public class Player {
 //				&& Objects.equals(position, other.position) && Objects.equals(shirtNumber, other.shirtNumber)
 //				&& Objects.equals(surname, other.surname) && Objects.equals(teamName, other.teamName);
 //	}
-
-	@Override
-	public String toString() {
-		return "Player [id=" + id + ", firstName=" + firstName + ", surname=" + surname + ", position=" + position
-				+ ", shirtNumber=" + shirtNumber + ", teamName=" + teamName + "]";
-	}
-	
+//
+//	@Override
+//	public String toString() {
+//		return "Player [id=" + id + ", firstName=" + firstName + ", surname=" + surname + ", position=" + position
+//				+ ", shirtNumber=" + shirtNumber + ", teamName=" + teamName + "]";
+//	}
+//	
 	
 	
 
