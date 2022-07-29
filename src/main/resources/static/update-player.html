@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Player</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="row">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <div>
+                    <button class="btn btn-success" onclick="location.href ='index.html'">Home</button>
+                    <button class="btn btn-danger" onclick="location.href ='view-team.html'">View Teams</button>
+                  </div>
+              <a class="navbar-brand">Update Player</a>
+              <!-- <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form> -->
+            </div>
+          </nav>
+    </div>
+    <div class="col-6 offset-3 mt-5" id="update-form">
+        <form class="create-player-form">
+            <div class="mb-1">
+            <label for="firstName" class="form-label">Enter Player First Name:</label>
+            <input  name="firstName" class="form-control" id="firstName" required>
+            </div>
+            <div class="mb-1">
+            <label for="surname" class="form-label">Enter Player Last Name:</label>
+            <input  name="surname" class="form-control" id="surname" required>
+            </div>
+            <div class="mb-1">
+            <label for="position"class="form-label">Enter Player Position:</label>
+            <select name="position" class="form-select" id="position" required>
+                <option value="GK">Goal Keeper</option>
+                <option value="RB">Right Back</option>
+                <option value="CB-R">Centre Back - Right</option>
+                <option value="CB-L">Centre Back - Left</option>
+                <option value="LB">Left Back</option>
+                <option value="RM">Right Mid</option>
+                <option value="CM-R">Centre Mid - Right</option>
+                <option value="CM-L">Centre Mid - Left</option>
+                <option value="LM">Left Mid</option>
+                <option value="ST-R">Striker - Right</option>
+                <option value="ST-L">Striker - Left</option>
+
+            </select>
+            </div>
+            <div class="mb-1">
+            <label for="shirtNumber" class="form-label">Enter Player Shirt Number</label>
+            <input  type="number" class="form-control" name="shirtNumber" id="shirtNumber" min="1" max="99" required>
+            </div>
+            <div class="mb-1">
+            <label for="teamName" class="form-label">Enter Player Team Name:</label>
+            <input  name="teamName" class="form-control" id="teamName" required>
+            </div>
+            <button type="submit" class="btn btn-success">Update</button>
+        </form>
+    </div>
+
+    <script src="update-player.js"></script>
+</body>
+</html>
