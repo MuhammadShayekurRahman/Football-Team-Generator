@@ -35,7 +35,7 @@ create database footballTeamGenerator;
 ### Execute the Jar file to start application
 
 ```
-java -jar 1.0-fat.jar
+java -jar FootballTeamGenerator-0.0.1-SNAPSHOT.jar
 ```
 
 ### Running the website
